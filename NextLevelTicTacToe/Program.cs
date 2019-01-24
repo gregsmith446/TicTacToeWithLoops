@@ -27,26 +27,26 @@ namespace NextLevelTicTacToe
     {
         public string importBoard(string[] input)
         {
-            char[] line1 = { '|', '|', ' '};
+            string[] line1 = { "|", "|", " " };
             string line2 = "-+-+-";
+            int size = 5;
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < size; i++)
             {
-                if (i % 2 == 0)
                 {
-                    foreach (char item in line1)
+                    if (i % 2 == 0)
                     {
-                        for (int k = 0; k < input.Length; k++)
+                        foreach(string line in line1)
                         {
-                            Console.Write(input[k] + item);
+                            Console.Write(line);
                         }
                     }
-                    Console.WriteLine();
+                    else
+                    {
+                        Console.Write(line2);
+                    }
                 }
-                else
-                {
-                    Console.Write(line2 + "\n");
-                }
+                Console.WriteLine();
             }
             return "data";
         }
@@ -61,3 +61,5 @@ namespace NextLevelTicTacToe
         // 3 4 5
         // 6 7 8
   
+
+    
