@@ -15,9 +15,15 @@ namespace NextLevelTicTacToe
 
             char[] input = { 'x','o','o','x', 'x', 'o', 'o', 'x', 'x' };
 
-            // use callClass var to access the importBoard function
+            // example move number for isValidMove function
+            int move = 1;
 
+            // use callClass var to access the makeBoard function + validate Move
             callClass.makeBoard(input);
+
+            callClass.isValidMove(move);
+
+
         }
     }
 
@@ -25,7 +31,7 @@ namespace NextLevelTicTacToe
     {
         public string makeBoard(char[] input)
         {
-            char[] line1 = { ' ', '|', ' ', '|', ' '};
+            char[] line1 = { ' ', '|', ' ', '|', ' ' };
             string line2 = "-+-+-";
             int boardSize = 5;
             int k = 0;
@@ -36,14 +42,14 @@ namespace NextLevelTicTacToe
                     for (int j = 0; j < line1.Length; j++)
                     {
                         Console.Write(line1[j]);
-                        if (j % 2 ==  0)
+                        if (j % 2 == 0)
                         {
-                                Console.Write(input[k]);
-                                k++;
-                                if (k == input.Length)
-                                {
+                            Console.Write(input[k]);
+                            k++;
+                            if (k == input.Length)
+                            {
                                 break;
-                                }
+                            }
                         }
                     }
                 else
@@ -53,7 +59,29 @@ namespace NextLevelTicTacToe
                 Console.WriteLine();
             }
             return "data";
-        } 
+        }
+
+        public bool isValidMove(int move)
+        {
+            bool result = true;
+
+            Console.WriteLine("insert move index number between 1 and 9, inclusive.");
+
+            move = Convert.ToInt32(Console.ReadLine());
+
+            if (move >= 1 && move <= 9)
+            {
+                Console.WriteLine("valid");
+                return result;
+            }
+            else
+            {
+                result = false;
+                Console.WriteLine("invalid move");
+                return result;
+            }
+        }
+
     }
 }
 
