@@ -13,53 +13,61 @@ namespace NextLevelTicTacToe
             // create an instance of the MakeBoard class
             var callClass = new MakeBoard();
 
-            // use the callClass variable to access on the ticTac function
-            // callClass.ticTac();
-
-            string[] input = { "x", "o", "x", "o", "x", "x", " ", "x", "x" };
+            char[] input = { 'x','o','o','x', 'x', 'o', 'o', 'x', 'x' };
 
             // use callClass var to access the importBoard function
-            callClass.importBoard(input);
+
+            callClass.makeBoard(input);
         }
     }
 
     class MakeBoard
     {
-        public string importBoard(string[] input)
+        public string makeBoard(char[] input)
         {
-            string[] line1 = { "|", "|", " " };
+            char[] line1 = { ' ', '|', ' ', '|', ' '};
             string line2 = "-+-+-";
-            int size = 5;
+            int boardSize = 5;
+            int k = 0;
 
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < boardSize; i++)
             {
-                {
-                    if (i % 2 == 0)
+                if (i % 2 == 0)
+                    for (int j = 0; j < line1.Length; j++)
                     {
-                        foreach(string line in line1)
+                        Console.Write(line1[j]);
+                        if (j % 2 ==  0)
                         {
-                            Console.Write(line);
+                                Console.Write(input[k]);
+                                k++;
+                                if (k == input.Length)
+                                {
+                                break;
+                                }
                         }
                     }
-                    else
-                    {
-                        Console.Write(line2);
-                    }
+                else
+                {
+                    Console.Write(line2);
                 }
                 Console.WriteLine();
             }
             return "data";
-        }
+        } 
     }
 }
 
-        // accepts 9 comma separated characters/strings
-        // data will be either '' 'x' 'o'
+/*
+          
+*/
 
-        // the indexes of the array
-        // 0 1 2
-        // 3 4 5
-        // 6 7 8
-  
 
-    
+// accepts 9 comma separated characters/strings
+// data will be either '' 'x' 'o'
+
+// the indexes of the array
+// 0 1 2
+// 3 4 5
+// 6 7 8
+
+
